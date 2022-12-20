@@ -33,7 +33,7 @@ if DEBUG:
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 ALLOWED_HOSTS = ['*']
 
-CSRF_TRUSTED_ORIGINS = ['https://pddaapp.up.railway.app']
+CSRF_TRUSTED_ORIGINS = ['']
 # Application definition
 
 INSTALLED_APPS = [
