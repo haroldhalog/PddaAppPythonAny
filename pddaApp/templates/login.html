@@ -1,0 +1,280 @@
+{% extends 'base.html' %}{% load static %}{% block pageContent %}
+<style> 
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+html,body{
+  display: grid;
+  height: 100%;
+  width: 100%;
+  place-items: center;
+  background: -webkit-linear-gradient(left, #a445b2, #c9fa42);
+}
+::selection{
+  background: #651abb;
+  color: #fff;
+}
+.wrapper{
+  overflow: hidden;
+  max-width: 390px;
+  background: #fff;
+  padding: 30px;
+  border-radius: 5px;
+  box-shadow: 0px 15px 20px rgba(0,0,0,0.1);
+}
+.wrapper .title-text{
+  display: flex;
+  width: 200%;
+}
+.wrapper .title{
+  width: 50%;
+  font-size: 35px;
+  font-weight: 600;
+  text-align: center;
+  transition: all 0.6s cubic-bezier(0.68,-0.55,0.265,1.55);
+}
+.wrapper .slide-controls{
+  position: relative;
+  display: flex;
+  height: 50px;
+  width: 100%;
+  overflow: hidden;
+  margin: 30px 0 10px 0;
+  justify-content: space-between;
+  border: 1px solid lightgrey;
+  border-radius: 5px;
+}
+.slide-controls .slide{
+  height: 100%;
+  width: 100%;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+  text-align: center;
+  line-height: 48px;
+  cursor: pointer;
+  z-index: 1;
+  transition: all 0.6s ease;
+}
+.slide-controls .slider-tab{
+  position: absolute;
+  height: 100%;
+  width: 50%;
+  left: 0;
+  z-index: 0;
+  border-radius: 5px;
+  background: -webkit-linear-gradient(left, #a445b2, #fa4299);
+  transition: all 0.6s cubic-bezier(0.68,-0.55,0.265,1.55);
+}
+input[type="radio"]{
+  display: none;
+}
+#signup:checked ~ label.signup{
+  color: #fff;
+  cursor: default;
+  user-select: none;
+}
+#signup:checked ~ label.login{
+  color: #000;
+}
+#login:checked ~ label.signup{
+  color: #000;
+}
+#login:checked ~ label.login{
+  cursor: default;
+  user-select: none;
+}
+.wrapper .form-container{
+  width: 100%;
+  overflow: hidden;
+}
+.form-container .form-inner{
+  display: flex;
+  width: 200%;
+}
+.form-container .form-inner form{
+  width: 50%;
+  transition: all 0.6s cubic-bezier(0.68,-0.55,0.265,1.55);
+}
+.form-inner form .field{
+  height: 50px;
+  width: 100%;
+  margin-top: 20px;
+}
+.form-inner form .field input{
+  height: 100%;
+  width: 100%;
+  outline: none;
+  padding-left: 15px;
+  border-radius: 5px;
+  border: 1px solid lightgrey;
+  border-bottom-width: 2px;
+  font-size: 17px;
+  transition: all 0.3s ease;
+}
+.form-inner form .field input:focus{
+  border-color: #b183fc;
+  /* box-shadow: inset 0 0 3px #fb6aae; */
+}
+.form-inner form .field input::placeholder{
+  color: #999;
+  transition: all 0.3s ease;
+}
+form .field input:focus::placeholder{
+  color: #b3b3b3;
+}
+.form-inner form .pass-link{
+  margin-top: 5px;
+}
+.form-inner form .signup-link{
+  text-align: center;
+  margin-top: 30px;
+}
+.form-inner form .pass-link a,
+.form-inner form .signup-link a{
+  color: #b1145d;
+  text-decoration: none;
+}
+.form-inner form .pass-link a:hover,
+.form-inner form .signup-link a:hover{
+  text-decoration: underline;
+}
+form .btn{
+  height: 50px;
+  width: 100%;
+  border-radius: 5px;
+  position: relative;
+  overflow: hidden;
+}
+form .btn .btn-layer{
+  height: 100%;
+  width: 300%;
+  position: absolute;
+  left: -100%;
+  background: -webkit-linear-gradient(right, #a445b2, #4282fa, #a445b2, #fa4299);
+  border-radius: 5px;
+  transition: all 0.4s ease;;
+}
+form .btn:hover .btn-layer{
+  left: 0;
+}
+form .btn input[type="submit"]{
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+  position: relative;
+  background: none;
+  border: none;
+  color: #fff;
+  padding-left: 0;
+  border-radius: 5px;
+  font-size: 20px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.global-container {
+    background-color: #42faa4;
+
+}
+.card-body {
+    background-color: #42faa4;
+}
+
+</style>
+
+<!DOCTYPE html>
+<!-- Created By CodingNepal -->
+
+<html lang="en" dir="ltr">
+    <div class="global-container">
+        <div class="card login-form">
+        <div class="card-body">
+            <h3 class="card-title text-center">Log in </h3>
+            <div class="card-text">
+                <!--
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">Incorrect username or password.</div> -->
+                <form id="login-user">
+                    {% csrf_token %}
+                    <div class="mdc-layout-grid">
+                        <div class="mdc-layout-grid__inner">
+                            <div class="form-group mb-3">
+                                <label for="username" class="control-label">Username</label>
+                                <input type="text" class="form-control rounded-0" name="username" id="username" required="required">
+                            </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control rounded-0" name="password" id="password required="required">
+                        <a href="{% url 'password_reset' %}" style="float:right;font-size:12px;">Forgot password?</a>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+                    
+                    <div class="sign-up">
+                        Don't have an account? <a href="{% url 'register-user' %}">Create One</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    </div>
+      <script>
+      </script>
+   </body>
+</html>
+
+{% endblock pageContent %} {% block ScriptBlock %}
+<script>
+    $(function() {
+        $('#login-user').submit(function(e) {
+            e.preventDefault();
+            var _this = $(this)
+            $('.err-msg').remove();
+            var el = $('<div>')
+            el.addClass("alert alert-danger err-msg")
+            el.hide()
+            if (_this[0].checkValidity() == false) {
+                _this[0].reportValidity();
+                return false;
+            }
+            start_loader();
+            $.ajax({
+                headers: {
+                    "X-CSRFToken": '{{csrf_token}}'
+                },
+                url: "{% url 'login-user' %}",
+                data: new FormData($(this)[0]),
+                cache: false,
+                contentType: false,
+                processData: false,
+                method: 'POST',
+                type: 'POST',
+                dataType: 'json',
+                error: err => {
+                    console.log(err)
+                    alert_toast("An error occured", 'error');
+                    end_loader();
+                },
+                success: function(resp) {
+                    if (typeof resp == 'object' && resp.status == 'success') {
+                        el.removeClass("alert alert-danger err-msg")
+                        location.href = "{% url 'home-page' %}"
+                    } else if (resp.status == 'failed' && !!resp.msg) {
+                        el.text(resp.msg)
+                    } else {
+                        el.text("An error occured", 'error');
+                        end_loader();
+                        console.err(resp)
+                    }
+                    _this.prepend(el)
+                    el.show('slow')
+                    $("html, body, .modal").scrollTop(0);
+                    end_loader()
+                }
+            })
+        })
+    })
+</script>
+{% endblock ScriptBlock %}

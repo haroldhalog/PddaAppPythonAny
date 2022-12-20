@@ -1,0 +1,18 @@
+]+ static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
+
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+
+
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('', include('pddaApp.urls')),
+]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
+
+if DEBUG:
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+

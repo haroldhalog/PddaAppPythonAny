@@ -1,0 +1,256 @@
+<style>
+    /* Add a black background color to the top navigation */
+  .topnav {
+    background-color: #333;
+    overflow: hidden;
+  }
+  
+  /* Style the links inside the navigation bar */
+  .topnav a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  
+  /* Change the color of links on hover */
+  .topnav a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+  
+  /* Add a color to the active/current link */
+  .topnav a.active {
+    
+    color: white;
+  }
+  </style>
+  <div class="topnav">
+    <a class="active" href="{% url 'home-page' %}">Home</a>
+    <a href="{% url 'news' %}">News</a>
+    <a href="{% url 'contact' %}">Contact</a>
+    <a href="{% url 'about' %}">About</a>
+  </div>
+  <html>
+      <head>
+          <title>About</title>  
+          <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+  @import url('https://fonts.googleapis.com/css?family=Exo+2|Yatra+One');
+  
+  *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Exo 2', sans-serif;
+  }
+  
+  body{
+    background: #8c7ae6;
+  }
+  
+  .wrapper{
+    margin-top: 60px;
+    text-align: center;
+  }
+  
+  .wrapper h1{
+    font-family: 'Yatra One', cursive;
+    font-size: 48px;
+    color: #fff;
+    margin-bottom: 25px;
+  }
+  .wrapper1{
+    margin-top: 60px;
+    text-align: center;
+  }
+  
+  .wrapper1 h1{
+    font-family: 'Yatra One', cursive;
+    font-size: 20px;
+    color: #fff;
+    margin-bottom: 25px;
+  }
+  
+  .our_team{
+    width: auto;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .our_team .team_member{
+    width: 250px;
+    margin: 5px;
+    background: #fff;
+    padding: 20px 10px;
+  }
+  
+  .our_team .team_member .member_img{
+    background: #e9e5fa;  
+    max-width: 190px;
+    width: 100%;
+    height: 190px;
+    margin: 0 auto;
+    border-radius: 50%;
+    padding: 5px;
+    position: relative;
+    cursor: pointer;
+  }
+  
+  .our_team .team_member .member_img img{
+    width: 100%;
+    height: 100%;
+  }
+  
+  .our_team .team_member h3{
+    text-transform: uppercase;
+    font-size: 18px;
+    line-height: 18px;
+    letter-spacing: 2px;
+    margin: 15px 0 0px;
+  }
+  
+  .our_team .team_member span{
+    font-size: 10px;
+  }
+  
+  .our_team .team_member p{
+    margin-top: 20px;
+    font-size: 14px;
+    line-height: 20px;
+  }
+  
+  .our_team .team_member .member_img .social_media{
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    background: rgba(0,0,0,0.65);
+    width: 95%;
+    height: 95%;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: scale(0);
+     transition: all 0.5s ease;
+  }
+  
+  .our_team .team_member .member_img .social_media .item{
+    margin: 0 10px;
+  }
+  
+  .our_team .team_member .member_img .social_media .fab{
+    color: #8c7ae6;
+    font-size: 20px;
+  }
+  
+  .our_team .team_member .member_img:hover .social_media{
+    transform: scale(1);
+  } 
+  </style>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+  
+  <div class="wrapper">
+      <h1>Our Team</h1>
+      <div class="wrapper1">
+      <h1>Technological Institute of the Philippines
+  
+        Archiving Website Application for Project Development Documents Dedicated for Computer Engineers.</h1>
+      <div class="our_team">
+          <div class="team_member">
+            <div class="member_img">
+               <img src="{{ MEDIA_URL }}/uploads/hal.png" alt="our_team">
+              <div class="social_media">
+                 <div class="facebook item"><i class="fab fa-facebook-f"></i></div>
+                 <div class="twitter item"><i class="fab fa-twitter"></i></div>
+                 <div class="instagram item"><i class="fab fa-instagram"></i></div>
+               </div>
+            </div>
+            <h3>HAROLD HALOG</h3>
+            <span>Leader(System Administration)</span>
+            <span>qhphalog@tip.edu.ph</span>
+            <h3></h3>
+            <p>Hello everyone! I am HAROLD HALOG from  Antipolo City. I am a 4th-year college student and currently taking BS in Computer Engineering at TIP Quezon City. </p>
+          </div>
+          <div class="team_member">
+            <div class="member_img">
+               <img src="{{ MEDIA_URL }}/default/my_pic3.png" alt="our_team">
+              <div class="social_media">
+                 <div class="facebook item"><i class="fab fa-facebook-f"></i></div>
+                 <div class="twitter item"><i class="fab fa-twitter"></i></div>
+                 <div class="instagram item"><i class="fab fa-instagram"></i></div>
+               </div>
+            </div>
+            <h3>Jay Mark Gabor</h3>
+            <span>Member(System Administration)</span>
+            <span>qjmrgabor@tip.edu.ph</span>
+            <p>Hello everyone! I am Jay Mark Gabor from Commonwealth, Quezon City. I am a 4th-year college student and currently taking BS in Computer Engineering at TIP Quezon City.</p>
+          </div>
+          <div class="team_member">
+            <div class="member_img">
+               <img src="" alt="our_professor">
+              <div class="social_media">
+                 <div class="facebook item"><i class="fab fa-facebook-f"></i></div>
+                 <div class="twitter item"><i class="fab fa-twitter"></i></div>
+                 <div class="instagram item"><i class="fab fa-instagram"></i></div>
+               </div>
+            </div>
+            <h3>Engr. Jonathan Taylar</h3>
+            <span>Professor</span>
+            <h3></h3>
+            <span> Bachelor of Science in Computer Engineering (BS CpE) degree from the AMA Computer College, East Rizal, Antipolo, in 2006, and the Master of Science in Computer Science (MSCS) degree from AMA University, Quezon City, Philippines, in 2008. He recently graduated with a Doctor of Engineering Major in Computer Engineering (DENGG) degree from the Technological Institute of the Philippines, Quezon City campus.</span>
+            <p></p>
+          </div>
+          <div class="team_member">
+             <div class="member_img">
+               <img src="{{ MEDIA_URL }}/default/my_pic.png" alt="our_team">
+               <div class="social_media">
+                 <div class="facebook item"><i class="fab fa-facebook-f"></i></div>
+                 <div class="twitter item"><i class="fab fa-twitter"></i></div>
+                 <div class="instagram item"><i class="fab fa-instagram"></i></div>
+               </div>
+            </div>
+            <h3>Kenneth Pingcas</h3>
+            <span>Member(System Administration)</span>
+            <span>qkcgpingcas@tip.edu.ph</span>
+            <p>Hello everyone! I am Kenneth Pingcas from Antipolo City. I am a 4th-year college student and currently taking BS in Computer Engineering at TIP Quezon City.</p>
+        </div>
+          <div class="team_member">
+             <div class="member_img">
+               <img src="{{ MEDIA_URL }}/default/my_pic5.jpg" alt="our_team">
+               <div class="social_media">
+                 <div class="facebook item"><i class="fab fa-facebook-f"></i></div>
+                 <div class="twitter item"><i class="fab fa-twitter"></i></div>
+                 <div class="instagram item"><i class="fab fa-instagram"></i></div>
+               </div>
+            </div>
+     
+            <h3>Angelo Tusing</h3>
+            <span>Member(System Administration)</span>
+            <span>qavtusing@tip.edu.ph</span>
+            <p>Hello everyone! I am Angelo Tusing from Commonwealth, Quezon City. I am a 4th-year college student and currently taking BS in Computer Engineering at TIP Quezon City.
+</p>
+          
+        </div>
+          <div class="team_member">
+             <div class="member_img">
+               <img src="{{ MEDIA_URL }}/default/my_pic4.jpg" alt="our_team">
+               <div class="social_media">
+                 <div class="facebook item"><i class="fab fa-facebook-f"></i></div>
+                 <div class="twitter item"><i class="fab fa-twitter"></i></div>
+                 <div class="instagram item"><i class="fab fa-instagram"></i></div>
+               </div>
+            </div>
+           
+            <h3>Mark Nathan Naval</h3>
+            <span>Member(System Administration)</span>
+            <span>qmntnaval@tip.edu.ph</span>
+            <p>Hello everyone! I am Mark Nathaniel Naval from Fairview, Quezon City. I am a 4th-year college student and currently taking BS in Computer Engineering at TIP Quezon City.
+</p>
+        </div>  
+      </div>
+  </div>
+  </html>
